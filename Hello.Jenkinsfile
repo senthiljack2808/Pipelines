@@ -8,6 +8,7 @@ pipeline {
                 echo 'This is the first stage'
             sh 'pwd'
             sh 'ls'
+            sh 'mvn test'
             echo 'end'
             }
         }
