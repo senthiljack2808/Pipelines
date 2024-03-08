@@ -6,7 +6,9 @@ pipeline {
         stage('First Stage') {
             steps {
                 echo 'This is the first stage'
-            
+            script{
+                  mvn test
+                  }
             echo 'end'
             }
         }
