@@ -7,6 +7,7 @@ pipeline {
             steps {
                 echo 'This is the first stage'
             sh 'pwd'
+            sh 'ls'
             echo 'end'
             }
         }
