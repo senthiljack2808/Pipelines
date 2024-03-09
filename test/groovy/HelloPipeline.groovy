@@ -2,7 +2,7 @@
 
 import com.lesfurets.jenkins.unit.global.lib.Library
 
-@Library('nextlayerci-example@master') _
+@Library('nextlayerci-example@pipeline-sub-branch') _
 
 import io.nextlayer.ci.UtilExample
 
