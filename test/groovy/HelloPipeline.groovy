@@ -7,7 +7,6 @@ import com.lesfurets.jenkins.unit.global.lib.Library
 import io.nextlayer.ci.UtilExample
 
 def execute() {
-    pipeline {
         node() {
             stage("First") {
                 echo "Something"
@@ -21,7 +20,6 @@ def execute() {
                 echo "We're done"
             }
         }
-    }
 }
 
 return this
