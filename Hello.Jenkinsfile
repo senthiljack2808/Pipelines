@@ -2,10 +2,7 @@ pipeline {
 
     agent any
     
-     environment {
-           M2_HOME = '/Applications/apache-maven-3.6.0'
-           PATH = "${env.PATH}:${env.M2_HOME}/bin"
-       }
+   
        
     stages {
     
