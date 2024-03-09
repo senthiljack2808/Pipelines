@@ -1,4 +1,6 @@
+def gv
 pipeline {
+
 
     agent any
     
@@ -23,17 +25,30 @@ pipeline {
         stage('Second Stage') {
             steps {
                 echo 'This is the second stage'
-                
+                  script{
+                            gv =load "test/groovy/HelloPipeline.groovy"
+                          }
                 echo 'end'
             }
         }
         
             stage('third last Stage') {
                     steps {
+                    script{
+                                 gv.execute()
+                            }
                         echo 'This is the third senthil stage'
                         
                     }
                 }
+                
+                     stage('fourth Stage') {
+                                    steps {
+                                    
+                                        echo 'This is the fourth stage'
+                                        
+                                    }
+                                }
        
     }
     
