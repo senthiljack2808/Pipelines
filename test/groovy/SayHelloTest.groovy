@@ -22,7 +22,7 @@ class SayHelloTest extends BasePipelineTest {
                 .allowOverride(false)
                 .retriever(localSource(sharedLibs))
                 .targetPath(sharedLibs)
-                .defaultVersion("pipeline-sub-branch")
+                .defaultVersion("master")
                 .implicit(true)
                 .build()
         helper.registerSharedLibrary(library)
