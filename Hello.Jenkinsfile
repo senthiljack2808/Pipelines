@@ -8,7 +8,7 @@ pipeline {
                 echo 'This is the first stage'
             sh 'pwd'
             sh 'ls'
-            sh 'export M2_HOME=/Applications/apache-maven-3.6.0;export PATH=$PATH:$M2_HOME/bin;mvn --version'
+            sh 'export M2_HOME=/Applications/apache-maven-3.6.0;export PATH=$PATH:$M2_HOME/bin;echo $M2_HOME;echo $PATH;mvn --version'
             echo 'end'
             }
         }
