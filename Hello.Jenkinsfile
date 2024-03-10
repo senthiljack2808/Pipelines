@@ -1,4 +1,11 @@
 @Library('shared-library') _
+
+import com.lesfurets.jenkins.unit.global.lib.Library
+
+@Library('nextlayerci-example@master') _
+
+import io.nextlayer.ci.UtilExample
+
 def gv
 pipeline {
 
@@ -20,6 +27,8 @@ pipeline {
             sh 'mvn --version'
             sh 'mvn test'
             sayHello()
+              UtilExample util = new UtilExample()
+              echo util.doSomething()
             echo 'end'
             }
         }
