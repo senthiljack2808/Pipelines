@@ -26,8 +26,7 @@ pipeline {
             sh 'mvn --version'
             sh 'mvn test'
             sayHello()
-              UtilExample util = new UtilExample()
-              echo util.doSomething()
+              echo UtilExample.doSomething()
             echo 'end'
             }
         }
