@@ -2,7 +2,6 @@
 
 import com.lesfurets.jenkins.unit.global.lib.Library
 
-@Library('nextlayerci-example@master') _
 
 import io.nextlayer.ci.UtilExample
 
