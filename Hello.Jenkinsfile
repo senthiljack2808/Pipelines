@@ -1,3 +1,4 @@
+@Library('shared-library') _
 def gv
 pipeline {
 
@@ -18,6 +19,7 @@ pipeline {
             sh 'ls'
             sh 'mvn --version'
             sh 'mvn test'
+            sayHello()
             echo 'end'
             }
         }
