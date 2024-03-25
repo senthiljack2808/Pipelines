@@ -24,6 +24,7 @@ pipeline {
             sh 'pwd'
             sh 'ls'
             sh 'mvn --version'
+            sh 'mvn clean install'
             sh 'mvn test'
             sayHello()
             echo 'end'
