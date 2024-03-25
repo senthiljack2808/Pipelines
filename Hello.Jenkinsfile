@@ -1,9 +1,5 @@
 @Library('shared-library') _
 
-import com.lesfurets.jenkins.unit.global.lib.Library
-
-
-import io.nextlayer.ci.UtilExample
 
 def gv
 pipeline {
