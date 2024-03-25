@@ -26,7 +26,6 @@ pipeline {
             sh 'mvn --version'
             sh 'mvn test'
             sayHello()
-              echo UtilExample.doSomething()
             echo 'end'
             }
         }
