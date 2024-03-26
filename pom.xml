@@ -38,6 +38,7 @@
             <groupId>com.solocode</groupId>
             <artifactId>solo-library</artifactId>
             <version>1.0.0</version>
+            <scope>system</scope>
             <systemPath>${project.basedir}/solocode-1.0-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>

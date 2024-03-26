@@ -22,6 +22,7 @@ pipeline {
             sh 'mvn --version'
             sh 'mvn clean install'
             sh 'mvn test'
+            sh 'java -version'
             sayHello()
             echo 'end'
             }
