@@ -12,7 +12,7 @@ class UtilExample implements Serializable {
     }
     
     String doSomething() {
-        new App().run()
+        
         // Get the current date and time
         LocalDateTime currentDateTime = LocalDateTime.now()
 
@@ -30,7 +30,8 @@ class UtilExample implements Serializable {
         if (StringUtils.isEmpty(str)) {
             return "The string is empty";
         } else {
-            return "The string is not empty";
+            String run=new App().run()
+            return "The string is not empty $run";
         }
     }
 }

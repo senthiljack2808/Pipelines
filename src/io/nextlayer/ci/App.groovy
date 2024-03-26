@@ -4,8 +4,8 @@ public class App {
     public App() {
     }
 
-    public void run() {
-        println "Hello world!"
+     String run() {
+        return "Hello world!"
     }
 
     public static void main(String[] args) {
