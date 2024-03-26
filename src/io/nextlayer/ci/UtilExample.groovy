@@ -1,9 +1,11 @@
 #!/usr/bin/env groovy
 package io.nextlayer.ci
 
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.apache.commons.lang3.StringUtils;
+import org.example.App;
 
 class UtilExample implements Serializable {
 
@@ -11,6 +13,7 @@ class UtilExample implements Serializable {
     }
     
     String doSomething() {
+        new App().run()
         // Get the current date and time
         LocalDateTime currentDateTime = LocalDateTime.now()
 
