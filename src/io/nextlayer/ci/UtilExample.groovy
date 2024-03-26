@@ -3,6 +3,7 @@ package io.nextlayer.ci
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import org.apache.commons.lang3.StringUtils;
 
 class UtilExample implements Serializable {
 
@@ -20,6 +21,14 @@ class UtilExample implements Serializable {
         String formattedDateTime = currentDateTime.format(formatter)
 
         // Print the formatted date and time
-        return "Something done Formatted Date and Time: $formattedDateTime"
+        // "Something done Formatted Date and Time: $formattedDateTime"
+        String str = "Hello, world!";
+        
+        // Check if the string is empty
+        if (StringUtils.isEmpty(str)) {
+            return "The string is empty";
+        } else {
+            return "The string is not empty";
+        }
     }
 }
