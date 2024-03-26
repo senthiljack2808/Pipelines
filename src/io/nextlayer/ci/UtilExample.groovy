@@ -20,7 +20,6 @@ class UtilExample implements Serializable {
         String formattedDateTime = currentDateTime.format(formatter)
 
         // Print the formatted date and time
-        println "Formatted Date and Time: $formattedDateTime"
-        return "Something done"
+        return "Something done Formatted Date and Time: $formattedDateTime"
     }
 }
