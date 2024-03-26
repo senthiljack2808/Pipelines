@@ -1,11 +1,13 @@
 package io.nextlayer.ci
+import static org.junit.Assert.assertEquals
 
 public class App {
     public App() {
     }
 
     public void run() {
-        echo "Hello world!";
+        println "Hello world!"
+        assertEquals(1, 1)
     }
 
     public static void main(String[] args) {
