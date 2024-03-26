@@ -23,7 +23,7 @@ pipeline {
             sh 'mvn clean install'
             sh 'mvn test'
             sh 'java -version'
-            sh 'cd target;ls'
+            sh 'cd target/test-classes/nextlayerci-example@master/src/io;ls'
             sayHello()
             echo 'end'
             }
