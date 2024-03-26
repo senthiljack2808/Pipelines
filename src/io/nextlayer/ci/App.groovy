@@ -5,7 +5,7 @@ public class App {
     }
 
     public void run() {
-        System.out.println("Hello world!");
+        echo "Hello world!";
     }
 
     public static void main(String[] args) {
