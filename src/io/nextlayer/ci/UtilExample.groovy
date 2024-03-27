@@ -6,7 +6,7 @@ package io.nextlayer.ci
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import org.apache.commons.lang3.StringUtils;
+//import org.apache.commons.lang3.StringUtils;
 
 class UtilExample implements Serializable {
 
@@ -37,7 +37,5 @@ class UtilExample implements Serializable {
         }
     }
 
-    static void main(String[] args) {
-        doSomething();
-    }
+   
 }
