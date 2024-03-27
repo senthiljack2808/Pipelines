@@ -1,12 +1,12 @@
 #!/usr/bin/env groovy
 package io.nextlayer.ci
 
+import org.example.App;
 @GrabResolver(name='solocode-1.0-SNAPSHOT.jar', root='.jenkins/workspace/pipelineTrial')
 @GrabConfig(systemClassLoader=true)
 @Grab('org.example:solocode:1.0-SNAPSHOT')
 
 
-import org.example.App;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.apache.commons.lang3.StringUtils;
