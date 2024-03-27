@@ -7,7 +7,6 @@ package io.nextlayer.ci
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.apache.commons.lang3.StringUtils;
-import org.example.App;
 
 
 class UtilExample implements Serializable {
@@ -35,8 +34,7 @@ class UtilExample implements Serializable {
         if (StringUtils.isEmpty(str)) {
             return "The string is empty";
         } else {
-            def run=new App().run();
-            return "The string is not empty $run";
+            return "The string is not empty";
         }
     }
 }
