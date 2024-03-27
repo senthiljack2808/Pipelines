@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 package io.nextlayer.ci
 
-@GrabResolver(name='solocode-1.0-SNAPSHOT.jar', root='./')
+@GrabResolver(name='solocode-1.0-SNAPSHOT.jar', root='./Users/senthilkumar/.jenkins/workspace/pipelineTrial')
 @Grab('com.solocode:solo-library:1.0.0')
 
 import org.example.App;
