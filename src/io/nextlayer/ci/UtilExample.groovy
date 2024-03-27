@@ -2,9 +2,7 @@
 package io.nextlayer.ci
 
 import org.example.App;
-@GrabResolver(name='solocode-1.0-SNAPSHOT.jar', root='.jenkins/workspace/pipelineTrial')
-@Grab('org.example:solocode:1.0-SNAPSHOT')
-@GrabConfig(systemClassLoader=true)
+
 
 
 import java.time.LocalDateTime;
