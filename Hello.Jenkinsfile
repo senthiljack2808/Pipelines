@@ -20,8 +20,6 @@ pipeline {
             sh 'pwd'
             sh 'ls'
             sh 'mvn --version'
-            sh 'mvn clean install'
-            sh 'mvn test'
             sh 'java -version'
             sh 'cd target/test-classes/nextlayerci-example@master/src/io/nextlayer/ci;ls'
             sayHello()
@@ -29,34 +27,7 @@ pipeline {
             }
         }
         
-        stage('Second Stage') {
-            steps {
-                echo 'This is the second stage'
-                  script{
-                            gv =load "test/groovy/HelloPipeline.groovy"
-                          }
-                echo 'end'
-            }
-        }
         
-            stage('third last Stage') {
-                    steps {
-                    script{
-                                 gv.execute()
-                            }
-                        echo 'This is the third senthil stage'
-                        
-                    }
-                }
-                
-                     stage('fourth Stage') {
-                                    steps {
-                                    
-                                        echo 'This is the fourth stage'
-                                        
-                                    }
-                                }
-       
     }
     
     post {
