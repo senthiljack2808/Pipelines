@@ -21,7 +21,6 @@ pipeline {
             sh 'ls'
             sh 'mvn --version'
             sh 'java -version'
-            sh 'cd target/test-classes/nextlayerci-example@master/src/io/nextlayer/ci;ls'
             sayHello()
             echo 'end'
             }
