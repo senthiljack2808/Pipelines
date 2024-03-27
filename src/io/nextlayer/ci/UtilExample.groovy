@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 class UtilExample implements Serializable {
 
     public UtilExample() {
+        
     }
     
     String doSomething() {
