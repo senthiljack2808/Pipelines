@@ -5,4 +5,5 @@ def call(String name = "human") {
     String imageName =util.doSomething()
     echo "Something : ${imageName}"
     echo "Hello, ${name}."
+   
 }

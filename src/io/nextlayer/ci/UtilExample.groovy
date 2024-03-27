@@ -1,7 +1,10 @@
 #!/usr/bin/env groovy
 package io.nextlayer.ci
 
-import io.nextlayer.ci.App;
+@GrabResolver(name='solocode-1.0-SNAPSHOT.jar', root='./')
+@Grab('com.solocode:solo-library:1.0.0')
+
+import org.example.App;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.apache.commons.lang3.StringUtils;
@@ -30,8 +33,8 @@ class UtilExample implements Serializable {
         if (StringUtils.isEmpty(str)) {
             return "The string is empty";
         } else {
-            String run=new App().run()
-            return "The string is not empty $run";
+            new App().run()
+            return "The string is not empty ";
         }
     }
 }
