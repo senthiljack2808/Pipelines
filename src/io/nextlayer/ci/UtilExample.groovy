@@ -33,8 +33,8 @@ class UtilExample implements Serializable {
         if (StringUtils.isEmpty(str)) {
             return "The string is empty";
         } else {
-            new App().run()
-            return "The string is not empty ";
+            String run=new App().run();
+            return "The string is not empty $run";
         }
     }
 }
