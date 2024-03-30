@@ -36,6 +36,16 @@ class UtilExample implements Serializable {
             return "The string is not empty Something done Formatted Date and Time: $formattedDateTime";
         }
     }
+    
+    String helloJava()
+    {
+        def file = new File("/Users/senthilkumar/.jenkins/workspace/pipelineTrial/solocode-1.0-SNAPSHOT.jar")
+        def url = file.toURI().toURL()
+        def loader = new URLClassLoader(url)
+        def myClass = loader.loadClass("org.example.App") // Replace with actual class path
+        def myObject = myClass.newInstance()
+        return myObject.run();
+    }
 
    
 }
