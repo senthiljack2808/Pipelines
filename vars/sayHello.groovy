@@ -4,7 +4,8 @@ def call(String name = "human") {
      UtilExample util = new UtilExample()
     String imageName =util.doSomething()
     String helloJava=util.helloJava()
-    echo "Hello : ${helloJava}"
+    def output = sh(script: "Hello : ${util.helloJava()}" , captureOutput: true)
+    echo "output : ${output}"
     echo "Something : ${imageName}"
     echo "Hello, ${name}."
    
