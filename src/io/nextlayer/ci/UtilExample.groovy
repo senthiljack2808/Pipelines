@@ -30,7 +30,7 @@ class UtilExample implements Serializable {
         String str = "Hello, world!";
         
         // Check if the string is empty
-        if (StringUtils.isEmpty(10)) {
+        if (StringUtils.isEmpty(str)) {
             return "The string is empty";
         } else {
             return "The string is not empty Something done Formatted Date and Time: $formattedDateTime";
