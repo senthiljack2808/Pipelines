@@ -21,7 +21,10 @@ pipeline {
             sh 'ls'
             sh 'mvn --version'
             sh 'java -version'
-            sayHello()
+             script {
+                    sayHello()
+
+                  }
             echo 'end'
             }
         }
