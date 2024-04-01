@@ -44,8 +44,7 @@ class UtilExample implements Serializable {
         def loader = new URLClassLoader(url)
         def myClass = loader.loadClass("org.example.App") // Replace with actual class path
         def myObject = myClass.newInstance()
-        myObject.run();
-        return ""
+        return myObject.run();
     }
 
    
