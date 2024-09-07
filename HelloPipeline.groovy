@@ -185,6 +185,7 @@ def generateStyledHtmlTable(String jsonContent) {
         mdrList.eachWithIndex { mdrEntry, index ->
             def mdr = mdrEntry[0]
             def upgrades = mdrEntry[1]
+            println("def upgrades ${upgrades}")
             htmlContent << "<tr>"
             if (index == 0) {
                 htmlContent << "<td rowspan='${mdrList.size()}'>${topology}</td>"
