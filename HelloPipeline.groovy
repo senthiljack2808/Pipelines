@@ -191,6 +191,7 @@ def generateStyledHtmlTable(String jsonContent) {
             }
             htmlContent << "<td>${mdr}</td>"
             tableHeaders[2..-1].each { header ->
+                println("upg header ${upgrades[header]}")
                 htmlContent << "<td>${formatStatus(upgrades[header] ?: '')}</td>"
             }
             htmlContent << "</tr>\n"
