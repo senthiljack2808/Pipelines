@@ -32,6 +32,11 @@ def generateStyledHtmlTable(String jsonContent) {
         }
     }
 
+    def headers = ""
+    tableHeaders.each {
+        headers += "<th>${it}</th>"
+    }
+
     // Generate HTML table with CSS
     def htmlContent = new StringBuilder()
     htmlContent << """
@@ -160,7 +165,7 @@ def generateStyledHtmlTable(String jsonContent) {
 
     <table class="styled-table">
         <tr>
-            ${tableHeaders.collect { "<th>${it}</th>" }.join()}
+            ${headers}
         </tr>
     """
 
