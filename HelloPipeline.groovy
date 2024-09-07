@@ -22,13 +22,17 @@ def generateStyledHtmlTable(String jsonContent) {
     println "done"
     // Extract the headers from the JSON content
     def tableHeaders = topologiesData.remove("Table_Headers") // Remove headers from data to prevent them from being processed as topologies
-    def topologies = new LinkedHashMap<String, Map<String, Map<String, String>>>()
+    def topologies = [:]
 
 // Process JSON content
     topologiesData.each { key, value ->
-        def (upgradeType, mdr) = key.split('_', 3).with { [it[0] +"_"+ it[1], it[2].replace('_MDR', '')] } // Extract upgrade type and MDR, remove '_Mdr' suffix
+        // Extract upgrade type and MDR, remove '_Mdr' suffix
+        def parts = key.split('_', 3)
+        def upgradeType = parts[0] + "_" + parts[1]
+        def mdr = parts[2].replace('_MDR', '')
+
         value.each { topology, status ->
-            // Initialize map if it doesn't exist (instead of computeIfAbsent)
+            // Groovy sandbox-compliant map initialization
             if (!topologies.containsKey(topology)) {
                 topologies[topology] = [:]
             }
@@ -38,7 +42,6 @@ def generateStyledHtmlTable(String jsonContent) {
             topologies[topology][mdr][upgradeType] = status
         }
     }
-
 
     def headers = ""
     tableHeaders.each {
