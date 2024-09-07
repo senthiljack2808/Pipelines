@@ -24,18 +24,21 @@ def generateStyledHtmlTable(String jsonContent) {
     def tableHeaders = topologiesData.remove("Table_Headers") // Remove headers from data to prevent them from being processed as topologies
     def topologies = new LinkedHashMap<String, Map<String, Map<String, String>>>()
 
-    // Process JSON content
+// Process JSON content
     topologiesData.each { key, value ->
         def (upgradeType, mdr) = key.split('_', 3).with { [it[0] +"_"+ it[1], it[2].replace('_MDR', '')] } // Extract upgrade type and MDR, remove '_Mdr' suffix
         value.each { topology, status ->
-            topologies.computeIfAbsent(topology) { [:] }.computeIfAbsent(mdr) { [:] }[upgradeType] = status
+            // Initialize map if it doesn't exist (instead of computeIfAbsent)
+            if (!topologies.containsKey(topology)) {
+                topologies[topology] = [:]
+            }
+            if (!topologies[topology].containsKey(mdr)) {
+                topologies[topology][mdr] = [:]
+            }
+            topologies[topology][mdr][upgradeType] = status
         }
     }
 
-    def headers = ""
-    tableHeaders.each {
-        headers += "<th>${it}</th>"
-    }
 
     // Generate HTML table with CSS
     def htmlContent = new StringBuilder()
@@ -165,7 +168,7 @@ def generateStyledHtmlTable(String jsonContent) {
 
     <table class="styled-table">
         <tr>
-            ${headers}
+            ${tableHeaders.collect { "<th>${it}</th>" }.join()}
         </tr>
     """
 
