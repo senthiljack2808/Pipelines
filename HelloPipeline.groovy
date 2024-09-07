@@ -159,7 +159,7 @@ def generateStyledHtmlTable(String jsonContent) {
 
     <table class="styled-table">
         <tr>
-            ${tableHeaders.collect { "<th>${it}</th>" }.join()}
+             ${tableHeaders.collect { "<th>${it}</th>" }.inject('') { acc, header -> acc + header }}
         </tr>
     """
 
