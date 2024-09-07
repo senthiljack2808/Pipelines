@@ -50,8 +50,8 @@ def generateStyledHtmlTable(String jsonContent) {
 
 
     // Generate HTML table with CSS
-    def htmlContent = new StringBuilder()
-    htmlContent << """
+    def htmlContent = ""
+    htmlContent += """
     <html>
     <head>
         <style>
@@ -201,19 +201,19 @@ def generateStyledHtmlTable(String jsonContent) {
             def mdr = mdrEntry.key
             def upgrades = mdrEntry.value
             println("upg $upgrades")
-            htmlContent << "<tr>"
+            htmlContent += "<tr>"
             if (index == 0) {
-                htmlContent << "<td rowspan='${mdrMap.size()}'>${topology}</td>"
+                htmlContent += "<td rowspan='${mdrMap.size()}'>${topology}</td>"
             }
-            htmlContent << "<td>${mdr}</td>"
+            htmlContent += "<td>${mdr}</td>"
             tableHeaders[2..-1].each { header ->
-                htmlContent << "<td>${formatStatus(upgrades[header])}</td>"
+                htmlContent += "<td>${formatStatus(upgrades[header])}</td>"
             }
-            htmlContent << "</tr>\n"
+            htmlContent += "</tr>\n"
         }
     }
 
-    htmlContent << """
+    htmlContent += """
     </table>
     </body>
     </html>
