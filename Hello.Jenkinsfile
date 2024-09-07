@@ -16,16 +16,17 @@ pipeline {
     
         stage('First Stage') {
             steps {
-
-                echo 'This is the first stage'
-                def summaryPage = load "${WORKSPACE}/HelloPipeline.groovy"
-                summaryPage.getSummary()
-            sh 'pwd'
-            sh 'ls'
-            sh 'mvn --version'
-            sh 'java -version'
-            sayHello()
-            echo 'end'
+                script {
+                    echo 'This is the first stage'
+                    def summaryPage = load "${WORKSPACE}/HelloPipeline.groovy"
+                    summaryPage.getSummary()
+                    sh 'pwd'
+                    sh 'ls'
+                    sh 'mvn --version'
+                    sh 'java -version'
+                    sayHello()
+                    echo 'end'
+                }
             }
         }
         
