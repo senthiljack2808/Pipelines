@@ -19,9 +19,15 @@ def generateStyledHtmlTable(String jsonContent) {
 
     // Process JSON content
     topologiesData.each { key, value ->
-        def (upgradeType, mdr) = key.split('_', 3).with { [it[0] +"_"+ it[1], it[2].replace('_MDR', '')] } // Extract upgrade type and MDR, remove '_Mdr' suffix
+        def (upgradeType, mdr) = key.split('_', 3).with { [it[0] + "_" + it[1], it[2].replace('_MDR', '')] } // Extract upgrade type and MDR, remove '_Mdr' suffix
         value.each { topology, status ->
-            topologies.computeIfAbsent(topology) { [:] }.computeIfAbsent(mdr) { [:] }[upgradeType] = status
+            if (!topologies.containsKey(topology)) {
+                topologies[topology] = [:]
+            }
+            if (!topologies[topology].containsKey(mdr)) {
+                topologies[topology][mdr] = [:]
+            }
+            topologies[topology][mdr][upgradeType] = status
         }
     }
 
