@@ -190,6 +190,8 @@ def generateStyledHtmlTable(String jsonContent) {
         }
     }
 
+    println("Topologies map $topologies")
+    
     // Generate table rows with intelligent merging of topology names
     topologies.each { topology, mdrMap ->
         mdrMap.eachWithIndex { mdrEntry, index ->
