@@ -8,18 +8,17 @@ def generateStyledHtmlTable(String jsonContent) {
     println "Data[1]: ${upgradeData[1]}"
     println "Data[2]: ${upgradeData[2]}"
 
-    def jobDetails=upgradeData[0]
-    def topologiesData=upgradeData[1]
-    def summary=upgradeData[2]
-    println topologiesData
-    println "done"
+    def jobDetails = upgradeData[0]
+    def topologiesData = upgradeData[1]
+    def summary = upgradeData[2]
+
     // Extract the headers from the JSON content
-    def tableHeaders = topologiesData.remove("Table_Headers") // Remove headers from data to prevent them from being processed as topologies
+    def tableHeaders = topologiesData.remove("Table_Headers")
     def topologies = new LinkedHashMap<String, Map<String, Map<String, String>>>()
 
     // Process JSON content
     topologiesData.each { key, value ->
-        def (upgradeType, mdr) = key.split('_', 3).with { [it[0] + "_" + it[1], it[2].replace('_MDR', '')] } // Extract upgrade type and MDR, remove '_Mdr' suffix
+        def (upgradeType, mdr) = key.split('_', 3).with { [it[0] + "_" + it[1], it[2].replace('_MDR', '')] } // Extract upgrade type and MDR
         value.each { topology, status ->
             if (!topologies.containsKey(topology)) {
                 topologies[topology] = [:]
@@ -41,85 +40,90 @@ def generateStyledHtmlTable(String jsonContent) {
                 font-family: Arial, sans-serif;
             }
 
-       /* Style for the specific summary table */
-        .summary-table {
-            border-collapse: collapse;
-            width: 50%;
-            margin: 20px auto; /* Center the table */
-            font-family: Arial, sans-serif;
-        }
+            /* Style for the specific summary table */
+            .summary-table {
+                border-collapse: collapse;
+                width: 50%;
+                margin: 20px auto;
+                font-family: Arial, sans-serif;
+            }
 
-        .summary-table th, .summary-table td {
-            border: 1px solid #dddddd;
-            text-align: center;
-            padding: 8px;
-        }
+            .summary-table th, .summary-table td {
+                border: 1px solid #dddddd;
+                text-align: center;
+                padding: 8px;
+            }
 
-        .summary-table th {
-            background-color: #4CAF50;
-            color: white;
-        }
+            .summary-table th {
+                background-color: #4CAF50;
+                color: white;
+            }
 
-        .summary-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+            .summary-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
 
-        .summary-table td.passed {
-            color: green;
-            font-weight: bold;
-        }
+            .summary-table td.passed {
+                color: green;
+                font-weight: bold;
+            }
 
-        .summary-table td.failed {
-            color: red;
-            font-weight: bold;
-        }
-/* Style for the specific summary table */
+            .summary-table td.failed {
+                color: red;
+                font-weight: bold;
+            }
 
-    /* Style for the specific vertical table */
-        .vertical-table {
-            border-collapse: collapse;
-            width: 50%;
-            margin: 20px auto; /* Center the table */
-            font-family: Arial, sans-serif;
-        }
+            /* Style for the specific vertical table */
+            .vertical-table {
+                border-collapse: collapse;
+                width: 50%;
+                margin: 20px auto;
+                font-family: Arial, sans-serif;
+            }
 
-        .vertical-table th, .vertical-table td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+            .vertical-table th, .vertical-table td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
 
-        .vertical-table th {
-            background-color: #4CAF50;
-            color: white;
-            width: 30%;
-        }
+            .vertical-table th {
+                background-color: #4CAF50;
+                color: white;
+                width: 30%;
+            }
 
-        .vertical-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-    /* Style for the specific vertical table */
+            .vertical-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
 
+            /* Style for the specific table */
             .styled-table {
                 border-collapse: collapse;
                 width: 100%;
+                margin: 20px auto;
             }
+
             .styled-table th, .styled-table td {
                 border: 1px solid #dddddd;
                 text-align: left;
                 padding: 8px;
             }
+
             .styled-table tr:nth-child(even) {
                 background-color: #f2f2f2;
             }
+
             .styled-table th {
                 background-color: #4CAF50;
                 color: white;
             }
+
             .status-passed {
                 color: green;
                 font-weight: bold;
             }
+
             .status-failed {
                 color: red;
                 font-weight: bold;
@@ -128,38 +132,38 @@ def generateStyledHtmlTable(String jsonContent) {
     </head>
     <body>
 
-<table class="vertical-table">
-    <tr><th>JOB_PARAMETERS</th><th>PARAMETER_VALUES</th></tr>
-    <tr><td>TestBranch</td><td>${jobDetails.TestBranch}</td></tr>
-    <tr><td>JobLink</td><td>${jobDetails.JobLink}</td></tr>
-    <tr><td>PreVersion</td><td>${jobDetails.PreVersion}</td></tr>
-    <tr><td>PreVersionJdk</td><td>${jobDetails.PreVersionJdk}</td></tr>
-    <tr><td>PostVersion</td><td>${jobDetails.PostVersion}</td></tr>
-    <tr><td>PostVersionJdk</td><td>${jobDetails.PostVersionJdk}</td></tr>
-    <tr><td>OS</td><td>${jobDetails.OS}</td></tr>
-</table>
+    <table class="vertical-table">
+        <tr><th>JOB_PARAMETERS</th><th>PARAMETER_VALUES</th></tr>
+        <tr><td>TestBranch</td><td>${jobDetails.TestBranch}</td></tr>
+        <tr><td>JobLink</td><td>${jobDetails.JobLink}</td></tr>
+        <tr><td>PreVersion</td><td>${jobDetails.PreVersion}</td></tr>
+        <tr><td>PreVersionJdk</td><td>${jobDetails.PreVersionJdk}</td></tr>
+        <tr><td>PostVersion</td><td>${jobDetails.PostVersion}</td></tr>
+        <tr><td>PostVersionJdk</td><td>${jobDetails.PostVersionJdk}</td></tr>
+        <tr><td>OS</td><td>${jobDetails.OS}</td></tr>
+    </table>
 
-<br><br>
+    <br><br>
 
-<!-- Table for TOTAL, PASSED, FAILED summary -->
-<table class="summary-table">
-    <tr>
-        <th>TOTAL</th>
-        <th>PASSED</th>
-        <th>FAILED</th>
-    </tr>
-    <tr>
-        <td>${summary.Total}</td>
-        <td>${summary.Passed}</td>
-        <td>${summary.Failed}</td>
-    </tr>
-</table>
+    <!-- Table for TOTAL, PASSED, FAILED summary -->
+    <table class="summary-table">
+        <tr>
+            <th>TOTAL</th>
+            <th>PASSED</th>
+            <th>FAILED</th>
+        </tr>
+        <tr>
+            <td>${summary.Total}</td>
+            <td>${summary.Passed}</td>
+            <td>${summary.Failed}</td>
+        </tr>
+    </table>
 
-<br><br>
+    <br><br>
 
     <table class="styled-table">
         <tr>
-             ${tableHeaders.collect { "<th>${it}</th>" }.inject('') { acc, header -> acc + header }}
+             ${tableHeaders.collect { "<th>${it}</th>" }.join()}
         </tr>
     """
 
@@ -177,16 +181,17 @@ def generateStyledHtmlTable(String jsonContent) {
 
     // Generate table rows with intelligent merging of topology names
     topologies.each { topology, mdrMap ->
-        mdrMap.eachWithIndex { mdrEntry, index ->
-            def mdr = mdrEntry.key
-            def upgrades = mdrEntry.value
+        def mdrList = mdrMap.collect { [it.key, it.value] }
+        mdrList.eachWithIndex { mdrEntry, index ->
+            def mdr = mdrEntry[0]
+            def upgrades = mdrEntry[1]
             htmlContent << "<tr>"
             if (index == 0) {
-                htmlContent << "<td rowspan='${mdrMap.size()}'>${topology}</td>"
+                htmlContent << "<td rowspan='${mdrList.size()}'>${topology}</td>"
             }
             htmlContent << "<td>${mdr}</td>"
             tableHeaders[2..-1].each { header ->
-                htmlContent << "<td>${formatStatus(upgrades[header])}</td>"
+                htmlContent << "<td>${formatStatus(upgrades[header] ?: '')}</td>"
             }
             htmlContent << "</tr>\n"
         }
