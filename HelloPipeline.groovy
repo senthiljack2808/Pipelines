@@ -195,6 +195,7 @@ def generateStyledHtmlTable(String jsonContent) {
         mdrMap.eachWithIndex { mdrEntry, index ->
             def mdr = mdrEntry.key
             def upgrades = mdrEntry.value
+            println("upg $upgrades")
             htmlContent << "<tr>"
             if (index == 0) {
                 htmlContent << "<td rowspan='${mdrMap.size()}'>${topology}</td>"
@@ -312,7 +313,6 @@ def getSummary() {
 ]'''
 
 // Generate HTML at runtime
-    approval()
     def htmlOutput = generateStyledHtmlTable(jsonContent)
     println htmlOutput
     return htmlOutput
